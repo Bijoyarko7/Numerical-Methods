@@ -93,6 +93,24 @@ for i = 1:length(sizes)
     er_mc(i) = abs(2*exp(0.5) - mean((sample.^2).*exp(sample)));
 end
 
+
+% First plot: Gauss-Hermite
+figure('Position', [100 100 400 400])
+loglog(iter, er_hermite, 'b-o', 'LineWidth', 2, 'MarkerSize', 8)
+grid on
+title('Gauss-Hermite Quadrature Error')
+xlabel('Number of Quadrature Points')
+ylabel('Absolute Error')
+
+% Second plot: Monte Carlo
+figure('Position', [500 100 400 400])
+loglog(sizes, er_mc, 'r-s', 'LineWidth', 2, 'MarkerSize', 8)
+grid on
+title('Monte Carlo Integration Error')
+xlabel('Sample Size')
+ylabel('Absolute Error')
+
+
 % Function for hermite
 function y = f_0(x)
  y = (x.^2).*exp(sqrt(2)*x);
