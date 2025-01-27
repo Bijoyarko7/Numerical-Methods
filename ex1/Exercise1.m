@@ -1,5 +1,10 @@
-%{
+%Numerical_Methods
+%Problem Set 1
+%Author: Bijoy Ratan Ghosh
+
 %Problem_1
+
+%{
 
 h_values = zeros(16,1);    
 er_one = zeros(16,1); %error for one sided finite difference       
@@ -18,7 +23,7 @@ end
 
 % Create a figure with a good size
 figure('Position', [100, 100, 800, 600])
-
+x=1
 % Plot all errors on log-log scale
 loglog(h_values, er_one, 'b-o', ...     % Blue line with circles for one-sided
        h_values, er_two, 'r-s', ...     % Red line with squares for two-sided
@@ -71,8 +76,8 @@ legend('One-sided difference', ...
 
 % Keep the grid for readability
 grid on
-%}
 
+%}
 
 %Problem_2
 er_hermite = zeros(7,1);
@@ -80,8 +85,8 @@ er_mc = zeros(4,1);
 iter = transpose([2 3 5 9 11 15 31]);
 
 for count=1:7
-    n= iter(count,1)
-    er_hermite(count) = abs(2*exp(0.5) - gausshermi(@f_0,0,0,n));
+    n= iter(count,1);
+    er_hermite(count) = abs(2*exp(0.5) - (2/sqrt(pi))*gausshermi(@f_0,0,0,n));
 end
 
 % Define sample sizes
