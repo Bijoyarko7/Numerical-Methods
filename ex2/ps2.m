@@ -131,7 +131,6 @@ for a = 0:0.02:1
 end
 %}
 
-% Using fmincon instead
 options = optimoptions('fmincon',...
     'Display', 'off',...
     'Algorithm', 'interior-point',...
@@ -169,7 +168,7 @@ function f = objectiveWithChecks(x, a, r)
         return;
     end
     
-    % Calculate utilities
+    % utilities
     u1 = utility1(x1_1, x2_1);
     u2 = utility2(x1_2, x2_2);
     
@@ -194,13 +193,11 @@ function u = utility2(x1, x2)
     end
 end
 
-% Simple but clear plot
+% Plot
 figure;
 plot(results_soc(:,2), results_soc(:,3), 'b.-', 'LineWidth', 2)
 hold on
 plot(2, r, 'ro', 'MarkerFaceColor', 'r', 'MarkerSize', 10)  % Endowment point
-
-% Basic formatting
 xlabel('Good 1')
 ylabel('Good 2')
 title('Pareto Optima and Initial Endowment')
