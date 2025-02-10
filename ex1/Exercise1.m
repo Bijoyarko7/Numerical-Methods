@@ -2,9 +2,10 @@
 %Problem Set 1
 %Author: Bijoy Ratan Ghosh
 
-%Problem_1
 
-%{
+
+
+%Problem_1
 
 h_values = zeros(16,1);    
 er_one = zeros(16,1); %error for one sided finite difference       
@@ -76,8 +77,8 @@ legend('One-sided difference', ...
 
 % Keep the grid for readability
 grid on
+%{
 
-%}
 
 %Problem_2
 er_hermite = zeros(7,1);
@@ -120,3 +121,5 @@ ylabel('Absolute Error')
 function y = f_0(x)
  y = (x.^2).*exp(sqrt(2)*x);
 end
+
+%}
